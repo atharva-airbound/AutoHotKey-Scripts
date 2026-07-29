@@ -116,7 +116,15 @@ RButton Up::{
 ZoomWheel(wheel) {
     global g_rbScrolled := true
     if (MouseOverFirefox()) {
-        global g_menuRisk := true   ; Alt can surface Firefox's menu bar
+        ; Arm the auto-Escape only when Firefox is also the ACTIVE window. The two
+        ; checks are deliberately different: the wheel event follows the POINTER
+        ; (so hovered Firefox is what zooms), but Send delivers Alt to the FOCUSED
+        ; window — so it's only Firefox that can sprout a menu bar when Firefox has
+        ; focus. Arming on hover alone fires a stray Escape into whatever app you
+        ; actually had focused, which eats Escape-sensitive UI (terminals, editors,
+        ; anything modal) for a menu that was never opened.
+        if (WinActive("ahk_exe firefox.exe"))
+            global g_menuRisk := true   ; Alt can surface Firefox's menu bar
         if (!g_altHeld) {
             Send "{Alt down}"
             global g_altHeld := true
