@@ -27,6 +27,10 @@
 
 #HotIf
 
+#Include %A_ScriptDir%\scripts\Keyboard-Shortcuts.ahk
+
+#HotIf
+
 ; Tray icon: a plain gear — deliberately generic, so it stays apt as scripts
 ; beyond the current mouse ones get included here. Checked at the tray's actual
 ; 16x16: it stays legible on both light and dark taskbars, which several
@@ -40,4 +44,4 @@ TraySetIcon A_WinDir "\System32\shell32.dll", 315
 
 ; Without this the tray entry just reads "Startup.ahk", which says nothing about
 ; which hotkeys are live. Keep the second line in sync with the #Include list.
-A_IconTip := "AHK Startup Scripts`nMouse-Wheel + MouseXB1-WindowSwipe"
+A_IconTip := "AHK Startup Scripts`nMouse-Wheel + MouseXB1-WindowSwipe + Keyboard-Shortcuts"

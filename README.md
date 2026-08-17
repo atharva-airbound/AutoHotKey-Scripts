@@ -31,6 +31,7 @@ Loaded by `Startup.ahk`. Each remains independently runnable for editing and tes
 |--------|-----------|
 | `Mouse-Wheel.ahk` | Remaps the wheel while side/right buttons are held: XB2 = fast scroll, XB2+RB = zoom (Alt+wheel over Firefox, else Ctrl+wheel), RB = horizontal pan. |
 | `MouseXB1-WindowSwipe.ahk` | Hold the lower side button to open Alt+Tab and steer the switcher grid with mouse motion; release commits the selection. |
+| `Keyboard-Shortcuts.ahk` | Collected one-line keyboard overrides. Currently: Win+M minimizes only the active window instead of all of them. |
 
 ## `scripts/` — utilities
 
