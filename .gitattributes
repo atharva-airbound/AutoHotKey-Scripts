@@ -1,0 +1,5 @@
+# schtasks /create /xml rejects anything but UTF-16 ("unable to switch the
+# encoding"), so Startup-Task.xml has to be UTF-16 LE with a BOM on disk. Stored
+# as UTF-8 in the repo and converted on checkout, so diffs stay readable instead
+# of showing the whole file as a binary blob on every edit.
+Startup-Task.xml text working-tree-encoding=UTF-16LE-BOM eol=crlf

@@ -18,8 +18,10 @@ at-logon trigger, rather than from the Startup folder. Explorer deliberately hol
 Startup-folder shortcuts and then launches them serialized, which delayed these
 scripts by minutes after boot; a logon-triggered task is not in that queue.
 
-To recreate the task on a new machine, import `Startup-Task.xml` and fix the
-`<Command>`/`<Arguments>`/`<UserId>` paths for that machine. Adding a script means
+To recreate the task on a new machine, import `Startup-Task.xml` and replace the
+`COMPUTERNAME\USERNAME` placeholders in both `<UserId>` elements and the
+`C:\Users\USERNAME\...` paths in `<Arguments>`/`<WorkingDirectory>`; check
+`<Command>` points at your AutoHotkey v2 install. Adding a script means
 dropping it in `scripts/`, adding an `#Include`, and keeping its global and
 function names distinct — after inclusion every included file shares one namespace.
 

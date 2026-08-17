@@ -6,7 +6,7 @@
   </RegistrationInfo>
   <Principals>
     <Principal id="Author">
-      <UserId>S-1-5-21-1446800710-3678226934-2249616184-1003</UserId>
+      <UserId>COMPUTERNAME\USERNAME</UserId>
       <LogonType>InteractiveToken</LogonType>
       <!-- Elevated so UIPI doesn't kill the hotkeys when an admin app has focus. -->
       <RunLevel>HighestAvailable</RunLevel>
@@ -28,14 +28,14 @@
   </Settings>
   <Triggers>
     <LogonTrigger>
-      <UserId>LAPTOP-RCTNUJ9U\Atharva Sawant</UserId>
+      <UserId>COMPUTERNAME\USERNAME</UserId>
     </LogonTrigger>
   </Triggers>
   <Actions Context="Author">
     <Exec>
       <Command>C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe</Command>
-      <Arguments>"C:\Users\Atharva Sawant\Documents\AutoHotKey\Startup.ahk"</Arguments>
-      <WorkingDirectory>C:\Users\Atharva Sawant\Documents\AutoHotKey</WorkingDirectory>
+      <Arguments>"C:\Users\USERNAME\Documents\AutoHotKey\Startup.ahk"</Arguments>
+      <WorkingDirectory>C:\Users\USERNAME\Documents\AutoHotKey</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
