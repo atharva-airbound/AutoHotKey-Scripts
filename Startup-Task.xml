@@ -8,6 +8,8 @@
     <Principal id="Author">
       <UserId>S-1-5-21-1446800710-3678226934-2249616184-1003</UserId>
       <LogonType>InteractiveToken</LogonType>
+      <!-- Elevated so UIPI doesn't kill the hotkeys when an admin app has focus. -->
+      <RunLevel>HighestAvailable</RunLevel>
     </Principal>
   </Principals>
   <Settings>
