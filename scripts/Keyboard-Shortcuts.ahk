@@ -16,6 +16,7 @@
 #f::return    ; Feedback Hub
 #^q::return   ; Quick Assist
 #u::return    ; Accessibility settings
+F1::return    ; Help
 
 ; Lock the machine on F13
 F13::DllCall("LockWorkStation")
