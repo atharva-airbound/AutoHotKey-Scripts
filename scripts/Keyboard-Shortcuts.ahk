@@ -19,3 +19,7 @@
 
 ; Lock the machine on F13
 F13::DllCall("LockWorkStation")
+
+; Play/pause media on Shift + encoder press. F13 has no wildcard, so holding
+; Shift doesn't also lock the machine.
++F13::Send("{Media_Play_Pause}")
