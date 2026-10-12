@@ -100,21 +100,32 @@ ATG_DumpBMP(pBits, w, h, path) {
 }
 
 ; Most frequent colour on a sparse grid over the given rect - the panel fill.
+; Votes are pooled across near-identical shades: the acrylic panel (transparency
+; on) is noisy, #5b5b5b-#606060, and split that way it lost the exact-colour
+; vote to the white of the thumbnails, collapsing the grid to one tile.
 ATG_ModalColour(pBits, stride, x0, y0, x1, y1, step) {
+    global ATG_BG_TOL
     counts := Map()
-    best := 0, bestColour := 0
     y := y0
     while (y <= y1) {
         x := x0
         while (x <= x1) {
             c := ATG_Pixel(pBits, stride, x, y)
-            n := counts.Has(c) ? counts[c] + 1 : 1
-            counts[c] := n
-            if (n > best)
-                best := n, bestColour := c
+            counts[c] := counts.Has(c) ? counts[c] + 1 : 1
             x += step
         }
         y += step
+    }
+    best := 0, bestColour := 0
+    for c, n in counts {
+        if (n * 20 < best)
+            continue                ; can't win; skips the long tail cheaply
+        score := 0
+        for d, m in counts
+            if !ATG_Differs(d, c, ATG_BG_TOL // 2)
+                score += m
+        if (score > best)
+            best := score, bestColour := c
     }
     return bestColour
 }
